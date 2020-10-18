@@ -1,0 +1,316 @@
+*,
+*:after,
+*before{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html{
+    font-size: 11px;
+    color: #474747;
+}
+
+body{
+    background: url('../images/body_bg1.jpg');
+}
+
+a{
+    text-decoration: none;
+}
+
+/*
+Шрифты и прочая информация
+Цвета: #474747 #a5a5a5 #404040 #f7f7f7
+Шрифты: 'Bebas', 'Pocifico', 'Helvetica Neue'
+*/
+
+
+/*header*/
+
+.header-line{
+    width: 100%;
+    height: 0.7rem;
+    background-color: #474747;
+    opacity: .2;
+}
+
+.header-top{
+    padding-top: 3.4rem;
+    padding-bottom: 3.5rem;
+}
+
+.logo{
+    font-size: 5rem;
+    font-family: 'Pocifico';
+    padding-left: 2rem;
+    opacity: .7;
+}
+
+.header-nav .suptitle{
+    font-family: 'Bebas', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+
+    color: #a5a5a5;
+}
+
+
+.active:after{
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    transform: rotate(0deg);
+    opacity: .2;
+    border: 10px solid transparent; /* Прозрачные границы */
+    border-top: 10px solid #474747; /* Добавляем треугольник */
+
+    position: absolute;
+    top: -4.8rem;
+    left: 37%;
+}
+
+.header-nav a{
+    font-family: 'Bebas', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+
+    color: #474747;
+}
+
+.about-title .title{
+    font-family: 'Bebas' ,serif;
+    font-size: 2.4rem;
+    padding-bottom: .6rem;
+}
+
+.about-title .subtitle{
+    font-family: 'Helvetica Neue',serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    opacity: .6;
+    font-weight: 400;
+
+    padding-bottom: 2.3rem;
+}
+
+.line{
+    height: 5px;
+    background: url('../images/line.jpg');
+}
+
+
+/*blog-main-content*/
+
+.blog-item{
+    width: 72rem;
+    margin: 0 auto;
+}
+
+.blog-item:last-child .line{
+    display: none;
+}
+
+.blog-item .title{
+    font-size: 1.6rem;
+    font-family: 'Bebas', serif;
+
+    padding: 4rem 0 1.8rem 0;
+}
+
+.blog-item img{
+    width: 72rem;
+    height: 30.5rem;
+
+    border: 1px solid #c7c7c7;
+}
+
+.blog-item .info{
+    padding: 2.7rem 0 5.5rem 0;
+}
+
+.info-left{
+    min-width: 10rem;
+}
+
+.blog-item .info-left .text{
+    font-size: 1.6rem;
+    font-family: 'Bebas', serif;
+    opacity: .9;
+}
+
+.blog-item .info-left .value{
+    font-family: 'Helvetica Neue', serif;
+    color: #bababa;
+    font-size: 1.2rem;
+
+    padding: .8rem 0 1.5rem;
+}
+
+.blog-item .info-right{
+    font-family: 'Helvetica Neue', serif;
+    font-size: 1.4rem;
+    color: #414141;
+    opacity: .8;
+
+    padding-left: 5rem;
+}
+
+
+/*comments*/
+
+/*form*/
+
+.form{
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1.4rem;
+}
+
+.form input{
+    height: 3.5rem;
+    width: 26rem;
+
+    margin: 1rem 0;
+    padding: 1.8rem 1.4rem;
+    /* color: rgb(112, 112, 112); */
+
+    background-color: #fafafa;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 3px;
+    
+}
+
+.form input::placeholder{
+    font-family: 'Bebas' ,serif;
+}
+
+.form input:first-child{
+    margin-top: 3.5rem;
+}
+
+.form textarea{
+    height: 16rem;
+    width: 72rem;
+
+    margin: 1rem 0;
+    padding: 1.4rem 1.4rem;
+
+    background-color: #fafafa;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 3px;
+
+    resize: none
+}
+
+.form textarea::placeholder{
+    font-family: 'Bebas' ,serif;
+
+}
+
+.form .sub{
+    height: auto;
+    width: 9rem;
+
+    font-family: 'Bebas' ,serif;
+    /* color: #eee; */
+
+    margin: 1rem 0;
+    margin-bottom: 2rem;
+    padding: .5rem .7rem;
+
+    background-color: #fafafa;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: none;
+}
+
+
+/*other comments*/
+
+.comments-title{
+    padding: 2rem 0 5rem 0;
+}
+
+.comments-title .text{
+    font-family: 'Bebas', serif;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.comments-title .big-line{
+    width: 76%;
+    height: 2.4rem;
+
+    margin: 0;
+    margin-top: .4rem;
+
+    background-color: #000;
+    position: relative;
+
+    transition: all .4s linear;
+}
+
+/*.comments-title .big-line:after{
+    content: '';
+    display: block;
+    height: 1.8rem;
+    width :1.8rem;
+    transform: rotate(45deg);
+    background-color: #000;
+
+    position: absolute;
+    left: -1.2%;
+    top: .27rem;
+}*/
+
+.comments-title:hover .big-line{
+    width: 84%;
+}
+
+.comments-title:hover .big-line:after{
+    left: -1.1%;
+}
+
+
+/*other-comm-block*/
+
+.other-comm-block{
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.other-comm{
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.vert-line{
+    width: .2rem;
+    /* height: 4rem; */
+    background-color: #000;
+
+    position: absolute;
+    top: .1rem;
+    left: -1rem;
+}
+
+.other-comm-block .name{
+    font-size: 2rem;
+}
+
+.other-comm-block .text{
+    font-size: 1.8rem;
+    padding: .3rem 0 .7rem 0;
+}
+
+.other-comm-block .date{
+    font-size: 1.4rem;
+    color: #646464;
+}
+
+
+

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/projects.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/media.css') }}">
+    <title>Blitz | Projects</title>
+
+{% endblock %}
+  
+{% block main %}
+    <main class="main">
+        <div class="container">
+            <div class="projects-inner d-flex justify-content-between">
+                <div class="main-of-projects">
+                    <div class="projects-title">
+                        <div class="title text-uppercase">Projects</div>
+                        <div class="subtitle">
+                            Etiam eget mi enim, non ultricies nisi voluptatem, illo inventore veritatis et quasi architecto beatae 
+                            vitae dicta sunt explicabo nemo enim ipsam voluptatem.
+                        </div>
+                        <hr class="line">
+                    </div>
+                    <div class="projects-categories text-uppercase">
+                        <a href="projects">all</a>
+                        <a href="projects&cat=web">web</a>
+                        <a href="projects&cat=print">print</a>
+                        <a href="projects&cat=art">art</a>
+                        <a href="projects&cat=photoshop">photoshop</a>
+                        <a href="projects&cat=development">development</a>
+                    </div>
+                    <div class="projects-main-section">
+                        <div class="projects-items">
+                            {% for el in projects %}
+                            <div class="projects-item">
+                                <div class="item-img">
+                                    <img src='{{ el.img_path }}' alt="">
+                                </div>
+                                <div class="item-info">
+                                    <div class="title-text">
+                                        <a href="#" class="title text-uppercase">{{ el.title }}</a>
+                                        <div class="subtitle">{{ el.category }}</div>
+                                    </div>
+                                    <div class="text d-flex flex-wrap">
+                                        {{ el.text }}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>      <!--/main-of-projects-->
+                </div>
+                
+                <aside class="aside">
+                    <div class="about-blitz">
+                        <div class="title text-uppercase">About blitz</div>
+                        <hr class="line">
+                        <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praese nt libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elemen tum imperdiet. Duis sagittis ipsum. </div>
+                    </div>
+
+                    <div class="categories">
+                        <div class="title text-uppercase">Categories</div>
+                        <hr class="line">
+                        <div class="text">
+                            <a href="#">Video</a>
+                            <a href="#">Sports</a>
+                            <a href="#">Media</a>
+                            <a href="#">Entertainment</a>
+                            <a href="#">Life</a>
+                            <a href="#">Super Cool Stuff</a>
+                        </div>
+                    </div>
+                </aside>        <!--/aside-->
+       </div>       <!--/container-->
+    </main>         <!--/main-->
+    {{ cat }}
+
+    <script>
+
+        document.querySelector('.item-img img').onload = function() {
+            let items = document.querySelectorAll('.projects-item');
+
+            for (el of items) {
+                let childImg = el.querySelector('.item-img img').offsetHeight;
+                let childInfo = el.querySelector('.item-info').offsetHeight;
+                
+                document.querySelector('.projects-item').style.height = childImg + childInfo + 'px';
+            
+                console.log(window.getComputedStyle(document.querySelector('.projects-item')).height)
+            }
+
+            let tr = document.querySelector('.active:after');
+            console.log(tr)
+        }
+    </script>
+{% endblock %}

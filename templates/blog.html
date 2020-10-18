@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/media.css') }}">
+    <title>Blitz | Blog</title>
+
+{% endblock %}
+
+{% block main %}
+    <main class="main">
+        <div class="container">
+            <div class="blog-inner d-flex justify-content-between">
+                <div class="main-of-blog">
+                    <div class="blog-title">
+                        <div class="title text-uppercase">Blog</div>
+                        <div class="subtitle">
+                            Etiam eget mi enim, non ultricies nisi voluptatem, illo inventore veritatis et quasi architecto beatae
+                            vitae dicta sunt explicabo nemo enim ipsam voluptatem.
+                        </div>
+                        <hr class="line"> 
+                    </div>
+
+                    <section class="blog-content">
+                        <div class="change-page-block mass1 d-flex">
+                            {% for el in count_pages %}
+                                <a href="/blog&p={{ el }}">
+                                    <div class="btn-page" data-npage="{{ el }}"></div>
+                                </a>
+                            {% endfor %}
+                        </div>  <!--/change-page-block-->
+                        <div class="blog-items">
+                            {% for el in posts %}
+                            <div class="blog-item">
+                                <div class="title text-uppercase">{{ el.title }}</div>
+                                <img src="{{ el.img_path }}" alt="">
+                                <div class="info d-flex">
+                                    <div class="info-left">
+                                        <div class="date">
+                                            <div class="text text-uppercase">Date</div>
+                                            <div class="value">{{ el.date }}</div>
+                                        </div>
+                                        <div class="tags">
+                                            <div class="text text-uppercase">Tags</div>
+                                            <div class="value">{{ el.tags }}</div>
+                                        </div>
+                                        <div class="comments">
+                                            <a href="/blog/comments&id_post={{ el.id }}" class="text text-uppercase">Commnets</a>
+                                            <div class="value">{{ count_comms(el.id) }}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="info-right">
+                                        <div class="text d-flex flex-wrap">{{ el.text }}</div>
+                                        <div class="text">Lorem ipsum dolor sit amet, sit an molestie neglegentur concludaturque. Possim hendrerit in usu. Iriure delectus mea at, vis dicit laudem ex, vel eu possim imperdiet consequuntur. Brute ipsum tincidunt vim ei. Ne eos vidisse splendide instructior. Mei no latine praesent forensibus, te sed habemus tacimates, ad ipsum officiis constituto usu.</div>
+                                    </div>
+                                </div>
+                                <hr class="line">
+                            </div>  <!--/blog-item-->
+                            {% endfor %}
+                        </div>  <!--/blog-items-->
+
+                        <div class="change-page-block mass2 d-flex">
+                            {% for el in count_pages %}
+                                <a href="/blog&p={{ el }}">
+                                    <div class="btn-page" data-npage="{{ el }}"></div>
+                                </a>
+                            {% endfor %}
+                        </div>  <!--/change-page-block-->
+                    </section>
+                   
+                </div>      <!--/main-of-blog-->
+                
+
+                <aside class="aside">
+                    <div class="about-blitz">
+                        <div class="title text-uppercase">About blitz</div>
+                        <hr class="line">
+                        <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praese nt libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elemen tum imperdiet. Duis sagittis ipsum. </div>
+                    </div>
+
+                    <div class="categories">
+                        <div class="title text-uppercase">Categories</div>
+                        <hr class="line">
+                        <div class="text">
+                            <a href="#">Video</a>
+                            <a href="#">Sports</a>
+                            <a href="#">Media</a>
+                            <a href="#">Entertainment</a>
+                            <a href="#">Life</a>
+                            <a href="#">Super Cool Stuff</a>
+                        </div>
+                    </div>
+                </aside>        <!--/aside-->
+            </div>       <!--/container-->
+        </div>
+    </main><!--/main-->
+    <div class="number-page for-js" style="display: none">{{ page }}</div>
+    <script>
+        let nPage = document.querySelector('.number-page').innerHTML;
+
+        let btnMass = document.querySelectorAll('.btn-page');
+
+        function do_opacity(mass) {
+            for (let i of mass) {
+                if (i.dataset.npage == nPage ) {
+                    i.style.backgroundColor = '#e8e8e8'
+                }
+            }
+        }
+
+        do_opacity(btnMass);
+    </script>
+
+{% endblock %}

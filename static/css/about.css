@@ -1,0 +1,211 @@
+*,
+*:after,
+*before{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    color: #474747;
+}
+
+body{
+    background: url('../images/body_bg1.jpg');
+}
+
+a{
+    text-decoration: none;
+}
+
+/*
+Шрифты и прочая информация
+Цвета: #474747 #a5a5a5 #404040 #f7f7f7
+Шрифты: 'Bebas', 'Pocifico', 'Helvetica Neue'
+*/
+
+
+/*header*/
+
+.header-line{
+    width: 100%;
+    height: 0.7rem;
+    background-color: #474747;
+    opacity: .2;
+}
+
+.header-top{
+    padding-top: 3.4rem;
+    padding-bottom: 3.5rem;
+}
+
+.logo{
+    font-size: 5rem;
+    font-family: 'Pocifico';
+    padding-left: 2rem;
+    opacity: .7;
+}
+
+.header-nav .suptitle{
+    font-family: 'Bebas', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+
+    color: #a5a5a5;
+}
+
+
+.active:after{
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    transform: rotate(0deg);
+    opacity: .2;
+    border: 10px solid transparent; /* Прозрачные границы */
+    border-top: 10px solid #474747; /* Добавляем треугольник */
+
+    position: absolute;
+    top: -4.8rem;
+    left: 37%;
+}
+
+.header-nav a{
+    font-family: 'Bebas', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+
+    color: #474747;
+}
+
+.about-title .title{
+    font-family: 'Bebas' ,serif;
+    font-size: 2.4rem;
+    padding-bottom: .6rem;
+}
+
+.about-title .subtitle{
+    font-family: 'Helvetica Neue',serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    opacity: .6;
+    font-weight: 400;
+
+    padding-bottom: 2.3rem;
+}
+
+.line{
+    height: 5px;
+    background: url('../images/line.jpg');
+}
+
+
+/*about-main*/
+
+/*временно!*/
+/* .about-text-items{
+    display: flex;
+    justify-content: space-between;
+} */
+
+.about-text-item{
+    width: 30rem;
+}
+
+/* .about-text-item:nth-child(2n){
+    padding: 0 2.4rem;
+} */
+
+.about-text-item .title{
+    font-family: 'Bebas' ,serif;
+    font-size: 2.2rem;
+
+    padding-top: 4.2rem;
+}
+
+.about-text-item .subtitle{
+    font-family: 'Helvetica Neue',serif;
+    font-size: 1.4rem;
+    opacity: .6;
+    font-weight: 400;
+
+    padding: 2.6rem 0;
+}
+
+.about-text-item .text{
+    font-family: 'Helvetica Neue',serif;
+    font-size: 1.4rem;
+    opacity: .9;
+    font-weight: 400;
+
+    padding-bottom: 5.7rem;
+}
+
+
+/*about-persons*/
+
+.person-items{
+    padding-top: 5.6rem;
+}
+
+.person{
+    width: 29.8rem;
+}
+
+.about-person{
+    padding: 1.7rem 1.9rem;
+    background-color: #fff;
+
+    /* box-shadow: 1px 1px 20px black; */
+    border: 1px solid #fafafa;
+}
+
+.info-person{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.person .name{
+    font-family: 'Bebas' ,serif;
+    font-size: 1.8rem;
+}
+
+.person .prof{
+    font-family: 'Bebas' ,serif;
+    font-size: 1.2rem;
+    opacity: .6;
+}
+
+.person .id{
+    font-family: 'Bebas' ,serif;
+    font-size: 1.2rem;
+    opacity: .6;
+}
+
+.person .person-desc{
+    font-family: 'Helvetica Neue',serif;
+    opacity: .9;
+    font-size: 1.2rem;
+
+    padding-top: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***************************************************
+MEDIA
+***************************************************/

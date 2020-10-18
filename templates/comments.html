@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<!--     <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">-->
+    <link rel="stylesheet" href="../static/css/comments.css">
+
+    <title>Blitz | Comment</title>
+{% endblock %}
+
+{% block main %}
+    <main class="main">
+        <div class="container">
+            <div class="about-title">
+                <div class="title text-uppercase">Commnets</div>
+                <div class="subtitle">Etiam eget mi enim, non ultricies nisi voluptatem, illo inventore veritatis et quasi architecto beatae<br>
+                                      vitae dicta sunt explicabo nemo enim ipsam voluptatem.
+                </div>
+            </div>      <!--about-title-->
+            <hr class="line">
+
+            <section class="blog-content">
+                <div class="blog-items">
+                    {% for el in post %}
+                    <div class="blog-item">
+                        <div class="title text-uppercase">{{ el.title }}</div>
+                        <img src="{{ el.img_path }}" alt="">
+                        <div class="info d-flex">
+                            <div class="info-left">
+                                <div class="date">
+                                    <div class="text text-uppercase">Date</div>
+                                    <div class="value">{{ el.date }}</div>
+                                </div>
+                                <div class="tags">
+                                    <div class="text text-uppercase">Tags</div>
+                                    <div class="value">{{ el.tags }}</div>
+                                </div>
+                            </div>
+
+                            <div class="info-right">
+                                <div class="text d-flex flex-wrap">{{ el.text }}</div>
+                                <div class="text">Lorem ipsum dolor sit amet, sit an molestie neglegentur concludaturque. Possim hendrerit in usu. Iriure delectus mea at, vis dicit laudem ex, vel eu possim imperdiet consequuntur. Brute ipsum tincidunt vim ei. Ne eos vidisse splendide instructior. Mei no latine praesent forensibus, te sed habemus tacimates, ad ipsum officiis constituto usu.</div>
+                            </div>
+                        </div>
+                    </div>  <!--/blog-item-->
+                    <hr class="line">
+                    {% endfor %}
+
+
+                    <section class="comm-section">
+                        <div class="comm-form">
+                            <form method="post" class="form" name="comm">
+                                <input type="text" placeholder="Enter your name" name="name" id="name">
+                                <textarea name="text" id="text" class="textarea" placeholder="Enter your message"></textarea>
+                                <input type="submit" class="sub" value='SUBMIT' id="submit">
+                            </form>
+                        </div>  <!--/comm-form-->
+
+                        <div class="comments-block">
+                            <div class="comments-title text-uppercase d-flex justify-content-between">
+                                <div class="text">Commnets</div>
+                                <hr class="big-line">
+                            </div>
+
+                            <div class="other-comm-block">
+                                {% for el in comms %}
+                                <div class="other-comm">
+                                    <div class="name">{{ el.name }}</div>
+                                    <div class="text">{{ el.text }}</div>
+                                    <div class="date">{{ el.date }}</div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>  <!--/comm-section-->
+                </div>
+            </section>
+        </div>  <!--container-->
+    </main>
+
+    <script>
+        commMass = document.querySelectorAll('.other-comm');
+        
+        for (let i of commMass) {
+            vertLine = document.createElement('div');
+
+            heightComm = getComputedStyle(i).height;
+            // heightComm = i.offsetHeight
+            vertLine.style.height = heightComm;
+            console.log(heightComm)
+            vertLine.classList.add('vert-line');
+
+            i.append(vertLine);
+        }
+    
+    </script>
+{% endblock %}
